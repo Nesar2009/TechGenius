@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+            background: #1E1E1E;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .login-form h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFA500;
+            margin-bottom: 20px;
+        }
+
+        .login-form h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #FFA500;
+            margin-bottom: 10px;
+        }
+
+        .login-form p {
+            color: #FFA500;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            color: #1E1E1E;
+            background: #FFA500;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .login-form input:focus {
+            background: white;
+            border: 1px solid #FFA500;
+        }
+
+        .toggle-password {
+            position: relative;
+        }
+
+        .toggle-password .toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FFA500;
+            background: #1E1E1E;
+            border: 2px solid #FFA500;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-form button:hover {
+            background: #FFA500;
+            color: #1E1E1E;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            color: #FFA500;
+        }
+
+        .remember-me input {
+            margin-right: 10px;
+        }
+
+        .error-message {
+            color: red;
+            margin: 10px 0;
+        }
+
+        .back-home {
+            margin-top: 20px;
+        }
+
+        .back-home a {
+            font-size: 1rem;
+            color: #FFA500;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #FFA500;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home a:hover {
+            background: #FFA500;
+            color: #1E1E1E;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h1>Worker Login</h1>
+        <h2>Welcome Back!</h2>
+        <p>Please log in to continue</p>
+        <form action="work.html" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <div class="toggle-password">
+                <input type="password" name="password" placeholder="Password" required>
+                <span class="toggle-icon" onclick="togglePassword()">👁️</span>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" name="remember-me" id="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+            <div class="error-message" id="error-message"></div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="back-home">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            const passwordField = document.querySelector('.toggle-password input');
+            const passwordIcon = document.querySelector('.toggle-password .toggle-icon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                passwordIcon.textContent = '🙈';
+            } else {
+                passwordField.type = 'password';
+                passwordIcon.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>
